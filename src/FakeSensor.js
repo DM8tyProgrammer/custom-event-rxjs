@@ -1,7 +1,7 @@
 import { Subject } from "rxjs";
 export default class FakeSensor {
   constructor() {
-    this.current = Math.round(Math.random() * 30, 2);
+    this.current = Math.round(Math.random() * 9 + 20, 2);
     this.o = new Subject();
     this.direction = 1;
   }

@@ -3,6 +3,7 @@ const THRESHOLD = "30";
 export default class SensorMonitor {
   constructor(sensor) {
     this.sensor = sensor;
+    // subscriptions data
     this.subscriptions = {
       above30: new Subject(),
       below30: new Subject()
@@ -36,7 +37,8 @@ export default class SensorMonitor {
   }
 
   on(event, action) {
-    // sanatize event
+    // sanatize event .. left code
+
     this.subscriptions[event].subscribe(v => action(v));
   }
 }

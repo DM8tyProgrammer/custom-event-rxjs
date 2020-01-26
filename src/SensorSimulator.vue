@@ -7,6 +7,7 @@
         <small class="small text-muted">°C</small>
       </div>
 
+      <p class="lead small">Above 30 °C, AC would start; Windows would close</p>
       <div class="btn-group">
         <button v-on:click="increment()" class="btn btn-success btn-sm">+</button>
         <button v-on:click="descriment()" class="btn btn-danger btn-sm">-</button>

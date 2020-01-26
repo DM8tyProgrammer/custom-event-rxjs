@@ -1,14 +1,19 @@
 <template>
-  <div class="row">
-    <SensorSimulator v-bind:sensor="fakeSensor" class="col-md-3 col-sm-12"/>
-    <OnOff title="AC" v-bind:status="ac" class="col-md-3 col-sm-12"/>
-    <OnOff title="Windows" v-bind:status="window" class="col-md-3 col-sm-12"/>
+  <div>
+    <div class="row">
+      <SensorSimulator v-bind:sensor="fakeSensor" class="col-md-6 offset-md-3 col-12 border"/>
+    </div>
+    <div class="row">
+      <OnOff title="AC" v-bind:status="ac" class="col-md-3 offset-md-3 col-6 border"/>
+      <OnOff title="Windows" v-bind:status="window" class="col-md-3 col-6 border"/>
+    </div>
   </div>
 </template>
 
 <script>
 import FakeSensor from "./FakeSensor";
 import SensorMonitor from "./SensorMonitor";
+
 import SensorSimulator from "./SensorSimulator";
 import OnOff from "./OnOffComponent";
 
