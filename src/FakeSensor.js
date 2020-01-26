@@ -6,21 +6,21 @@ export default class FakeSensor {
     this.direction = 1;
   }
 
-  increaseTempature() {
+  increaseTemperature() {
     this.current += 1;
     this.o.next(this.current);
   }
 
-  decreaseTempature() {
+  decreaseTemperature() {
     this.current -= 1;
     this.o.next(this.current);
   }
 
-  currentTempature() {
+  currentTemperature() {
     return this.current;
   }
 
-  observeTempature() {
+  observeTemperature() {
     return this.o;
   }
 }

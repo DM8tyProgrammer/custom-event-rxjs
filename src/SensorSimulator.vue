@@ -1,34 +1,43 @@
 <template>
-  <div>
+  <div class="p-3">
     <h2>Sensor</h2>
     <div>
-      <div class="lead">{{sensorOutput}}</div>
-      <button v-on:click="increment()" class="btn btn-success">+</button>
-      <button v-on:click="descriment()" class="btn btn-danger">-</button>
+      <div class="lead display-4">
+        <span>{{sensorOutput}}</span>
+        <small class="small text-muted">°C</small>
+      </div>
+
+      <div class="btn-group">
+        <button v-on:click="increment()" class="btn btn-success btn-sm">+</button>
+        <button v-on:click="descriment()" class="btn btn-danger btn-sm">-</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import FakeSensor from "./FakeSensor";
-const sensor = new FakeSensor();
-
 export default {
+  props: {
+    sensor: {
+      type: Object,
+      required: true
+    }
+  },
   created() {
-    sensor.observeTempature().subscribe(o => (this.sensorOutput = o));
+    this.sensor.observeTemperature().subscribe(o => (this.sensorOutput = o));
   },
 
   data() {
     return {
-      sensorOutput: sensor.currentTempature()
+      sensorOutput: this.sensor.currentTemperature()
     };
   },
   methods: {
     increment() {
-      sensor.increaseTempature();
+      this.sensor.increaseTemperature();
     },
     descriment() {
-      sensor.decreaseTempature();
+      this.sensor.decreaseTemperature();
     }
   }
 };

@@ -3,3 +3,9 @@
 body {
   font-family: sans-serif;
 }
+header {
+}
+.links a {
+  font-size: 2em;
+  color: #333;
+}
