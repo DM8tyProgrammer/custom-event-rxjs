@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <SensorSimulator v-bind:sensor="fakeSensor" class="col-md-6 offset-md-3 col-12 border"/>
+      <ThermostatSimulator v-bind:sensor="fakeSensor" class="col-md-6 offset-md-3 col-12 border"/>
     </div>
     <div class="row">
       <OnOff title="AC" v-bind:status="ac" class="col-md-3 offset-md-3 col-6 border"/>
@@ -12,21 +12,21 @@
 
 <script>
 import FakeSensor from "./FakeSensor";
-import SensorMonitor from "./SensorMonitor";
+import Thermostat from "./Thermostat";
 
-import SensorSimulator from "./SensorSimulator";
+import ThermostatSimulator from "./ThermostatSimulator";
 import OnOff from "./OnOffComponent";
 
 export default {
   created() {
     this.fakeSensor = new FakeSensor();
-    const monitor = new SensorMonitor(this.fakeSensor);
-    monitor.on("below30", t => {
+    const monitor = new Thermostat(this.fakeSensor);
+    monitor.on("below", t => {
       this.ac = false;
       this.window = true;
     });
 
-    monitor.on("above30", t => {
+    monitor.on("above", t => {
       this.ac = true;
       this.window = false;
     });
@@ -40,7 +40,7 @@ export default {
   },
   computed: {},
   components: {
-    SensorSimulator,
+    ThermostatSimulator,
     OnOff
   }
 };

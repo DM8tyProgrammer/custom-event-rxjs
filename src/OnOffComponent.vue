@@ -34,7 +34,6 @@ export default {
       // console.log(dots.length);
       // for (let d of dots) {
       let icon = dot.getAttribute("data-prefix") === "far" ? "fas" : "far";
-      console.log(dot.getAttribute("data-prefix"), icon);
       dot.setAttribute("data-prefix", icon);
       // }
     }
