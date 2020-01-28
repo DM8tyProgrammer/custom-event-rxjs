@@ -20,13 +20,13 @@ import OnOff from "./OnOffComponent";
 export default {
   created() {
     this.fakeSensor = new FakeSensor();
-    const monitor = new Thermostat(this.fakeSensor);
-    monitor.on("below", t => {
+    const thermostat = new Thermostat(this.fakeSensor);
+    thermostat.on("below", t => {
       this.ac = false;
       this.window = true;
     });
 
-    monitor.on("above", t => {
+    thermostat.on("above", t => {
       this.ac = true;
       this.window = false;
     });

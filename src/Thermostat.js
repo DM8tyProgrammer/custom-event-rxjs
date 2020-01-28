@@ -3,7 +3,7 @@ const THRESHOLD = "30";
 export default class Thermostat {
   constructor(sensor) {
     this.sensor = sensor;
-    // subscriptions data
+    // data structure for holding subscriptions
     this.subscriptions = {
       above: new Subject(),
       below: new Subject()
@@ -14,21 +14,18 @@ export default class Thermostat {
   }
 
   monitor(currentTemperature) {
-    /* 
-       lastRecordedTemperature is added to publish 
-       only if there is jump in of temparature category 
-    */
+    // when temperature cross above THRESHOLD
     if (
       currentTemperature > THRESHOLD &&
       this.lastRecordedTemperature <= THRESHOLD
     ) {
-      console.log("emitted: above ");
+      // publish event
       this.subscriptions["above"].next(currentTemperature);
     } else if (
       currentTemperature <= THRESHOLD &&
       this.lastRecordedTemperature >= THRESHOLD
     ) {
-      console.log("emitted: below 30");
+      // publish event
       this.subscriptions["below"].next(currentTemperature);
     }
 
