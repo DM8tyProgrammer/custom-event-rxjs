@@ -1,11 +1,23 @@
 <template>
-  <div>
+  <div class="p-3">
+    <h3 class="display-4 text-center">Thermostat Simulator</h3>
     <div class="row">
-      <ThermostatSimulator v-bind:sensor="fakeSensor" class="col-md-6 offset-md-3 col-12 border"/>
+      <ThermostatSimulator
+        v-bind:sensor="fakeSensor"
+        class="col-md-6 offset-md-3 col-12 border rounded-top"
+      />
     </div>
     <div class="row">
-      <OnOff title="AC" v-bind:status="ac" class="col-md-3 offset-md-3 col-6 border"/>
-      <OnOff title="Windows" v-bind:status="window" class="col-md-3 col-6 border"/>
+      <OnOff
+        title="AC"
+        v-bind:status="ac"
+        class="col-md-3 offset-md-3 col-6 border-left border-bottom rounded-bottom"
+      />
+      <OnOff
+        title="Windows"
+        v-bind:status="window"
+        class="col-md-3 col-6 border-left border-bottom border-right rounded-bottom"
+      />
     </div>
   </div>
 </template>
