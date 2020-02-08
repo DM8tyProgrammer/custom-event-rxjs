@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <h3 class="display-4 text-center">Thermostat Simulator</h3>
+    <h3 class="display-5 text-center">Thermostat Simulator</h3>
     <div class="row">
       <ThermostatSimulator
         v-bind:sensor="fakeSensor"
